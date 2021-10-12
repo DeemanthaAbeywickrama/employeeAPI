@@ -1,0 +1,1 @@
+"DefaultConnectionString":  "SERVER=192.168.3.43;DATABASE=EMP-Deemantha;User id =sa; Password=tommya;Integrated Security=false;MultipleActiveResultSets= True;"
