@@ -12,19 +12,19 @@ export class ApiService {
   constructor(private _http: HttpClient) { }
 
   PostEmployee(data : any){
-    return this._http.post<any>(`${this.employeeAPIUrl}add_employee`,data)
+    return this._http.post<any>(`https://localhost:44389/api/Employee/add_employee`,data)
     .pipe(map((res:any)=>{
       return res;
     }))
   }
-  DeleteEmployee(id : number){
-    return this._http.delete<any>(`${this.employeeAPIUrl}delete_employee/`+id)
+  DeleteEmployee(id : any){
+    return this._http.delete<any>(`https://localhost:44389//api/Employee/delete_employee/`+id)
     .pipe(map((res:any)=>{
       return res;
     }))
   }
   UpdateEmployee(data : any){
-    return this._http.put<any>(`${this.employeeAPIUrl}update_employee`,data)
+    return this._http.put<any>(`https://localhost:44389/api/Employee/update_employee`,data)
     .pipe(map((res:any)=>{
       return res;
     }))

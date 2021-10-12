@@ -30,8 +30,8 @@
           <td>{{row.city}}</td>
           <td>{{row.remark}}</td>
           <td>
-            <button type="button" class="btn btn-outline-danger">Delete</button>
-          <button type="button" class="btn btn-outline-warning">Edit</button>
+            <button type="button" (click)="deleteEmployeeDetail(row)" class="btn btn-outline-danger">Delete</button>
+            <button type="button" (click)="onEdit(row)" class="btn btn-outline-warning">Edit</button>
           </td>
         
         </tr>
@@ -40,6 +40,46 @@
   
   </table>
 
-  </div>
+ </div> 
+
+
+<div class="container">
+
+  <form [formGroup]="formValue"  *ngIf="showUpdate">
+
+      <div class="mb-3">
+          <input type="text" formControlName="firstName" class="form-control" id="formGroupExampleInput" placeholder="Enter first name">
+      </div>
+      <div class="mb-3"> 
+          <input type="text" formControlName="lastName" class="form-control" id="formGroupExampleInput2" placeholder="Enter  last name">
+      </div>
+      <div class="mb-3">
+          <input type="text" formControlName="dob" class="form-control" id="formGroupExampleInput2" placeholder="Enter DOB (yyyy-mm-dd)">
+      </div>
+      <div class="mb-3">
+          <input type="text" formControlName="tpNo" class="form-control" id="formGroupExampleInput2" placeholder="Enter telephone no">
+      </div>
+      <div class="mb-3">
+          <input type="text" formControlName="email" class="form-control" id="formGroupExampleInput2" placeholder="Enter email">
+      </div>
+
+      <div class="mb-3">
+          <input type="text" formControlName="status" class="form-control" id="formGroupExampleInput2" placeholder="Enter status(Maried/Single)">
+      </div>
+  
+      <div class="mb-3">
+          <input type="text" formControlName="city" class="form-control" id="formGroupExampleInput2" placeholder="Enter city">
+      </div>
+      <div class="mb-3">
+          <input type="text" formControlName="remark" class="form-control" id="formGroupExampleInput2" placeholder="Enter remark">
+      </div>
+      
+      <button type="button" *ngIf="showUpdate" (click)="editEmployeeDetail()" class="btn btn-primary">Update</button>
+  </form>
+
+    
+</div>
+
+ 
 
   

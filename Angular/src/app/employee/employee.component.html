@@ -2,34 +2,39 @@
 
 <div class="container">
 
-    <div class="mb-3">
-        <input type="text" class="form-control" id="formGroupExampleInput" placeholder="Enter first name">
-    </div>
-    <div class="mb-3"> 
-        <input type="text" class="form-control" id="formGroupExampleInput2" placeholder="Enter  last name">
-    </div>
-    <div class="mb-3">
-        <input type="text" class="form-control" id="formGroupExampleInput2" placeholder="Enter DOB">
-    </div>
-    <div class="mb-3">
-        <input type="text" class="form-control" id="formGroupExampleInput2" placeholder="Enter telephone no">
-    </div>
-    <div class="mb-3">
-        <input type="text" class="form-control" id="formGroupExampleInput2" placeholder="Enter email">
-    </div>
+    <form [formGroup]="formValue">
 
-    <select class="form-select" aria-label="Default select example">
-        <option selected>Marital status</option>
-        <option value="1">Married</option>
-        <option value="2">Single</option>   
-    </select>
-      <br>
+        <div class="mb-3">
+            <input type="text" formControlName="firstName" class="form-control" id="formGroupExampleInput" placeholder="Enter first name">
+        </div>
+        <div class="mb-3"> 
+            <input type="text" formControlName="lastName" class="form-control" id="formGroupExampleInput2" placeholder="Enter  last name">
+        </div>
+        <div class="mb-3">
+            <input type="text" formControlName="dob" class="form-control" id="formGroupExampleInput2" placeholder="Enter DOB (yyyy-mm-dd)">
+        </div>
+        <div class="mb-3">
+            <input type="text" formControlName="tpno" class="form-control" id="formGroupExampleInput2" placeholder="Enter telephone no">
+        </div>
+        <div class="mb-3">
+            <input type="text" formControlName="email" class="form-control" id="formGroupExampleInput2" placeholder="Enter email">
+        </div>
 
-    <div class="mb-3">
-        <input type="text" class="form-control" id="formGroupExampleInput2" placeholder="Enter city">
-    </div>
-    <button type="button" class="btn btn-success" (click)= "add()">Add</button>
+        <div class="mb-3">
+            <input type="text" formControlName="status" class="form-control" id="formGroupExampleInput2" placeholder="Enter status(Maried/Single)">
+        </div>
     
+        <div class="mb-3">
+            <input type="text" formControlName="city" class="form-control" id="formGroupExampleInput2" placeholder="Enter city">
+        </div>
+        <div class="mb-3">
+            <input type="text" formControlName="remark" class="form-control" id="formGroupExampleInput2" placeholder="Enter remark">
+        </div>
     
+        <button type="button" class="btn btn-success" (click)= "addemployee()">Add</button>
+    </form>
+
+       
 
 </div>
+
