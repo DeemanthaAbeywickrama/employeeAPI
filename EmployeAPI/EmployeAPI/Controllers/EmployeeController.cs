@@ -69,7 +69,7 @@ namespace EmployeAPI.Controllers
             }
         }
 
-        [HttpDelete("delete_employee/(id)")]
+        [HttpDelete("delete_employee/{id}")]
         public IActionResult DeleteEmploye(int id)
         {
             var user = _context.employeeModels.Find(id);

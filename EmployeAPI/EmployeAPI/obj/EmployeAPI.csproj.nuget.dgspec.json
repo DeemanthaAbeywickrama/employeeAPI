@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\DEEMANTHA\\Desktop\\employeeAPI\\EmployeAPI\\EmployeAPI\\EmployeAPI.csproj": {}
+    "C:\\Users\\DEEMANTHA\\Desktop\\Tutorial heros\\EmployeAPI\\EmployeAPI\\EmployeAPI.csproj": {}
   },
   "projects": {
-    "C:\\Users\\DEEMANTHA\\Desktop\\employeeAPI\\EmployeAPI\\EmployeAPI\\EmployeAPI.csproj": {
+    "C:\\Users\\DEEMANTHA\\Desktop\\Tutorial heros\\EmployeAPI\\EmployeAPI\\EmployeAPI.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\DEEMANTHA\\Desktop\\employeeAPI\\EmployeAPI\\EmployeAPI\\EmployeAPI.csproj",
+        "projectUniqueName": "C:\\Users\\DEEMANTHA\\Desktop\\Tutorial heros\\EmployeAPI\\EmployeAPI\\EmployeAPI.csproj",
         "projectName": "EmployeAPI",
-        "projectPath": "C:\\Users\\DEEMANTHA\\Desktop\\employeeAPI\\EmployeAPI\\EmployeAPI\\EmployeAPI.csproj",
+        "projectPath": "C:\\Users\\DEEMANTHA\\Desktop\\Tutorial heros\\EmployeAPI\\EmployeAPI\\EmployeAPI.csproj",
         "packagesPath": "C:\\Users\\DEEMANTHA\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\DEEMANTHA\\Desktop\\employeeAPI\\EmployeAPI\\EmployeAPI\\obj\\",
+        "outputPath": "C:\\Users\\DEEMANTHA\\Desktop\\Tutorial heros\\EmployeAPI\\EmployeAPI\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\DEEMANTHA\\AppData\\Roaming\\NuGet\\NuGet.Config",

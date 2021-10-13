@@ -1,6 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { ApiService } from '../shared/api.service';
-import { FormBuilder, FormGroup } from '@angular/forms'
+import { FormBuilder, FormGroup, Validators } from '@angular/forms'
 import { EmployeeModel } from './view.model'; 
 
 
@@ -26,24 +26,19 @@ export class ViewComponent implements OnInit {
 
     ngOnInit(): void {
       this.formValue = this.formBuilder.group({
-        firstName: [''],
-        lastName: [''],
-        dob: [''],
-        tpNo: [''],
-        email: [''],
-        status: [''],
-        city: [''],
-        remark: ['']
+        firstName: ['',Validators.required],
+        lastName: ['',Validators.required],
+        dob: ['',Validators.required],
+        tpNo: ['',Validators.required],
+        email: ['',Validators.required],
+        status: ['',Validators.required],
+        city: ['',Validators.required],
+        remark: ['',Validators.required]
         
       })
       this.getEmployeeDetails();
     }
 
-  // clickAddEmployee(){
-  //   this.formValue.reset();
-  //   this.showAdd = true;
-  //   this.showUpdate = false;
-  // }
   
 
   getEmployeeDetails() {
@@ -64,7 +59,7 @@ export class ViewComponent implements OnInit {
        this.getEmployeeDetails();
      })
     } 
-   }
+  }
 
   editEmployeeDetail(){
   
@@ -76,6 +71,7 @@ export class ViewComponent implements OnInit {
      this.employeeObj.MaritalStatus = this.formValue.value.status;
      this.employeeObj.City = this.formValue.value.city;
      this.employeeObj.Remark = this.formValue.value.remark;
+
     this.api.UpdateEmployee(this.employeeObj)
     .subscribe(res=>{
       alert("Updated Successfully")
@@ -83,6 +79,7 @@ export class ViewComponent implements OnInit {
       ref?.click();
       this.getEmployeeDetails();
     })
+     this.showUpdate = false;
   }
 
   onEdit(row : any){
@@ -96,28 +93,9 @@ export class ViewComponent implements OnInit {
     this.formValue.controls['status'].setValue(row.maritalStatus);
     this.formValue.controls['city'].setValue(row.city);
     this.formValue.controls['remark'].setValue(row.remark);
-    this.showAdd = false;
+    //this.showAdd = false;
   }
 
-  // postEmployeeDetails() {
-  //   this.employeeObj.FirstName = this.formValue.value.firstName;
-  //   this.employeeObj.LastName = this.formValue.value.lastName;
-  //   this.employeeObj.DOB = this.formValue.value.dob;
-  //   this.employeeObj.TPNo = this.formValue.value.tpno;
-  //   this.employeeObj.Email = this.formValue.value.email;
-  //   this.employeeObj.MaritalStatus = this.formValue.value.status;
-  //   this.employeeObj.City = this.formValue.value.city;
-  //   this.employeeObj.Remark = this.formValue.value.remark;
-     
-  //   this.api.PostEmployee(this.employeeObj)
-  //     .subscribe(res => {
-  //       alert(res.message);
-  //       console.log(res);
-  //       let ref = document.getElementById('close');
-  //     ref?.click();
-  //     this.getEmployeeDetails();
-  //     })
-
-  // }
+  
 
 }

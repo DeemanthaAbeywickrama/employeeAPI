@@ -17,8 +17,8 @@ export class ApiService {
       return res;
     }))
   }
-  DeleteEmployee(id : any){
-    return this._http.delete<any>(`https://localhost:44389//api/Employee/delete_employee/`+id)
+  DeleteEmployee(id : number){
+    return this._http.delete<any>(`https://localhost:44389/api/Employee/delete_employee/`+ id)
     .pipe(map((res:any)=>{
       return res;
     }))
@@ -31,6 +31,34 @@ export class ApiService {
   }
   GetEmployees(){
     return this._http.get<any>(`https://localhost:44389/api/Employee/get_all_employees`)
+    .pipe(map((res:any)=>{
+      return res;
+    }))
+  }
+
+  GetCity(){
+    return this._http.get<any>(`https://localhost:44389/api/City/get_city`)
+    .pipe(map((res:any)=>{
+      return res;
+    }))
+  }
+
+  PostCity(data : any){
+    return this._http.post<any>(`https://localhost:44389/api/City/add_city`,data)
+    .pipe(map((res:any)=>{
+      return res;
+    }))
+  }
+
+  UpdateCity(data : any){
+    return this._http.put<any>(`https://localhost:44389/api/City/update_city`,data)
+    .pipe(map((res:any)=>{
+      return res;
+    }))
+  }
+
+  DeleteCity(id : number){
+    return this._http.delete<any>(`https://localhost:44389/api/City/delete_city/`+ id)
     .pipe(map((res:any)=>{
       return res;
     }))

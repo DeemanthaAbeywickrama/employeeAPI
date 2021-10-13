@@ -1,6 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { EmployeeModel } from './employee.model';
-import { FormBuilder, FormGroup } from '@angular/forms'
+import { FormBuilder, FormGroup, Validators } from '@angular/forms'
 import { ApiService } from '../shared/api.service';
 
 
@@ -22,17 +22,18 @@ export class EmployeeComponent implements OnInit {
 
   ngOnInit(): void {
     this.formValue = this.formBuilder.group({
-      firstName: [''],
-      lastName: [''],
-      dob: [''],
-      tpno: [''],
-      email: [''],
-      status: [''],
-      city: [''],
-      remark: ['']
+      firstName: ['',Validators.required],
+      lastName: ['',Validators.required],
+      dob: ['',Validators.required],
+      tpno: ['',Validators.required],
+      email: ['',Validators.required],
+      status: ['',Validators.required],
+      city: ['',Validators.required],
+      remark: ['',Validators.required]
       
     })
     this.getEmployeeDetails();
+
   }
 
   addemployee() {
@@ -54,6 +55,8 @@ export class EmployeeComponent implements OnInit {
       this.getEmployeeDetails();
       })
 
+    this.formValue.reset();
+
   }
 
   getEmployeeDetails() {
@@ -62,6 +65,10 @@ export class EmployeeComponent implements OnInit {
       this.employeeData = res.employeeDetails;
       
     })
+  }
+
+  clear(){
+    this.formValue.reset();
   }
 
 }

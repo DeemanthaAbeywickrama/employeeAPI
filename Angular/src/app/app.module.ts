@@ -8,13 +8,15 @@ import { ViewComponent } from './view/view.component';
 import { HttpClientModule } from '@angular/common/http';
 import { ApiService } from './shared/api.service';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { CityComponent } from './city/city.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
     EmployeeComponent,
-    ViewComponent
+    ViewComponent,
+    CityComponent
   ],
   imports: [
     BrowserModule,

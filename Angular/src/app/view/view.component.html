@@ -23,15 +23,19 @@
           <td>{{row.id}}</td>
           <td>{{row.firstName}}</td>
           <td>{{row.lastName}}</td>
-          <td>{{row.dob}}</td>
+          <td>{{row.dob | date}}</td>
           <td>{{row.tpNo}}</td>
           <td>{{row.email}}</td>
           <td>{{row.maritalStatus}}</td>
           <td>{{row.city}}</td>
           <td>{{row.remark}}</td>
           <td>
-            <button type="button" (click)="deleteEmployeeDetail(row)" class="btn btn-outline-danger">Delete</button>
-            <button type="button" (click)="onEdit(row)" class="btn btn-outline-warning">Edit</button>
+            <div class="d-grid gap-2 d-md-flex justify-content-md-mid">
+              <button type="button" (click)="deleteEmployeeDetail(row)" class="btn btn-outline-danger">Delete</button>
+              <button type="button" (click)="onEdit(row)" class="btn btn-outline-warning">Edit</button>
+
+            </div>
+            
           </td>
         
         </tr>
@@ -48,30 +52,67 @@
   <form [formGroup]="formValue"  *ngIf="showUpdate">
 
       <div class="mb-3">
+          <label for="formGroupExampleInput" class="form-label">Enter first name</label>
           <input type="text" formControlName="firstName" class="form-control" id="formGroupExampleInput" placeholder="Enter first name">
+          <span class="text-danger" *ngIf="formValue.controls['firstName'].dirty && formValue.hasError('required','firstName')">*First name is required*</span>
       </div>
       <div class="mb-3"> 
+          <label for="formGroupExampleInput" class="form-label">Enter last name</label>
           <input type="text" formControlName="lastName" class="form-control" id="formGroupExampleInput2" placeholder="Enter  last name">
+          <span class="text-danger" *ngIf="formValue.controls['lastName'].dirty && formValue.hasError('required','lastName')">*Last name is required*</span>
       </div>
       <div class="mb-3">
-          <input type="text" formControlName="dob" class="form-control" id="formGroupExampleInput2" placeholder="Enter DOB (yyyy-mm-dd)">
+          <label for="formGroupExampleInput" class="form-label">Enter dob</label>
+          <input type="date" formControlName="dob" class="form-control" id="formGroupExampleInput2" placeholder="Enter DOB (yyyy-mm-dd)">
+          <span class="text-danger" *ngIf="formValue.controls['dob'].dirty && formValue.hasError('required','dob')">*Dob is required*</span>
       </div>
       <div class="mb-3">
+          <label for="formGroupExampleInput" class="form-label">Enter telephone no</label>
           <input type="text" formControlName="tpNo" class="form-control" id="formGroupExampleInput2" placeholder="Enter telephone no">
+          <span class="text-danger" *ngIf="formValue.controls['tpNo'].dirty && formValue.hasError('required','tpNo')">*Telephone no is required*</span>
       </div>
       <div class="mb-3">
+          <label for="formGroupExampleInput" class="form-label">Enter email</label>
           <input type="text" formControlName="email" class="form-control" id="formGroupExampleInput2" placeholder="Enter email">
+          <span class="text-danger" *ngIf="formValue.controls['email'].dirty && formValue.hasError('required','email')">*Email is required*</span>
       </div>
 
-      <div class="mb-3">
-          <input type="text" formControlName="status" class="form-control" id="formGroupExampleInput2" placeholder="Enter status(Maried/Single)">
-      </div>
+      <div>
+        <label for="formGroupExampleInput" class="form-label">Select status</label>
+        <div class="form-check">
+            <input class="form-check-input" type="radio" formControlName="status" value="Single" name="flexRadioDefault" id="flexRadioDefault1">
+            <label class="form-check-label" for="flexRadioDefault1">Single</label>
+            
+          </div>
+
+          <div class="form-check">
+            <input class="form-check-input" type="radio" formControlName="status" value="Married" name="flexRadioDefault" id="flexRadioDefault2" checked>
+            <label class="form-check-label" for="flexRadioDefault2">Married</label>
+            
+          </div>
+          <br>
+    </div>
+
+      
+      <div>
+        <label for="formGroupExampleInput" class="form-label">Select city</label>
+        <select formControlName="city" class="form-select" aria-label="Default select example">
+            <option selected></option>
+            <option value="Matara">Matara</option>
+            <option value="Galle">Galle</option>
+            <option value="Colombo">Colombo</option>
+            <option value="Hambanthota">Hambanthota</option>
+            <option value="Kandy">Kandy</option>
+            <option value="Jaffna">Jaffna</option>
+            <option value="Anuradapura">Anuradapura</option>
+          </select>
+          <span class="text-danger" *ngIf="formValue.controls['city'].dirty && formValue.hasError('required','city')">*City is required</span>
+    </div>
   
       <div class="mb-3">
-          <input type="text" formControlName="city" class="form-control" id="formGroupExampleInput2" placeholder="Enter city">
-      </div>
-      <div class="mb-3">
+          <label for="formGroupExampleInput" class="form-label">Enter remark</label>
           <input type="text" formControlName="remark" class="form-control" id="formGroupExampleInput2" placeholder="Enter remark">
+          <span class="text-danger" *ngIf="formValue.controls['remark'].dirty && formValue.hasError('required','remark')">*Remark is required*</span>
       </div>
       
       <button type="button" *ngIf="showUpdate" (click)="editEmployeeDetail()" class="btn btn-primary">Update</button>
@@ -79,6 +120,7 @@
 
     
 </div>
+<br>
 
  
 

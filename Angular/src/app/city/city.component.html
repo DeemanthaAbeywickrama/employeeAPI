@@ -1,0 +1,64 @@
+
+
+<div class="container">
+  <br>
+
+  <form [formGroup]="formValue">
+    <div class="mb-3">
+      <label for="formGroupExampleInput" class="form-label">Enter City:</label>
+      <input type="text" formControlName="city" class="form-control" id="formGroupExampleInput">
+      <span class="text-danger" *ngIf="formValue.controls['city'].dirty && formValue.hasError('required','city')">*City is required*</span>
+    </div>
+
+    <button type="button" (click)="addCity()" class="btn btn-success">Add City</button>
+
+    
+
+  </form>
+    
+
+    <br><br>
+
+    <table class="table" >
+        <thead >
+          <tr>
+            <th scope="col">Id</th>
+            <th scope="col">City</th>
+            <th scope="col">Status</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let row of cityData">
+            <td class="span2">{{row.id}}</td>
+            <td>{{row.city}}</td>
+
+            <div class="d-grid gap-2 d-md-flex justify-content-md-mid">
+              <button type="button" (click)="deleteCity(row)" class="btn btn-outline-danger">Delete</button>
+              <button type="button" (click)="onUp(row)" class="btn btn-outline-warning">Edit</button>
+            </div>
+
+            
+          </tr>
+        </tbody>
+    </table>
+
+    <div>
+      <form [formGroup]="formValue" *ngIf="showUpdate"> 
+        <div class="mb-3">
+          <label for="formGroupExampleInput" class="form-label">Enter City:</label>
+          <input type="text" formControlName="city" class="form-control" id="formGroupExampleInput">
+          <span class="text-danger" *ngIf="formValue.controls['city'].dirty && formValue.hasError('required','city')">*City is required*</span>
+        </div>
+    
+        <button type="button" *ngIf="showUpdate" (click)="editCity()" class="btn btn-primary">Update city</button>
+    
+      </form>
+    </div>
+      
+</div>
+
+
+
+
+
+

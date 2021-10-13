@@ -16,9 +16,13 @@ namespace EmployeAPI.Data
 
         public DbSet<EmployeeModel> employeeModels { get; set; }
 
+        public DbSet<CityModel> cityModels { get; set; }
+
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.Entity<EmployeeModel>().ToTable("EmployeeDetails");
+
+            modelBuilder.Entity<CityModel>().ToTable("EmployeeCity");
         }
 
     }
