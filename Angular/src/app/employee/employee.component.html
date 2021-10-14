@@ -1,5 +1,5 @@
 <br>
-
+<!-- formValue.controls['cityName'].touched -->
 <div class="container">
 
     <form [formGroup]="formValue">
@@ -7,27 +7,27 @@
         <div class="mb-3">
             <label for="formGroupExampleInput" class="form-label">Enter first name</label>
             <input type="text" formControlName="firstName" class="form-control" id="firstName" >
-            <span class="text-danger" *ngIf="formValue.controls['firstName'].dirty && formValue.hasError('required','firstName')">*First name is required*</span>
+            <span class="text-danger" *ngIf="formValue.controls['firstName'].invalid && (formValue.controls['firstName'].dirty || formValue.controls['firstName'].touched)">*First name is required*</span>
         </div>
         <div class="mb-3"> 
             <label for="formGroupExampleInput" class="form-label">Enter last name</label>
             <input type="text" formControlName="lastName" class="form-control" id="formGroupExampleInput2" >
-            <span class="text-danger" *ngIf="formValue.controls['lastName'].dirty && formValue.hasError('required','lastName')">*Last name is required*</span>
+            <span class="text-danger" *ngIf="formValue.controls['lastName'].invalid && (formValue.controls['lastName'].dirty || formValue.controls['lastName'].touched)">*Last name is required*</span>
         </div>
         <div class="mb-3">
             <label for="formGroupExampleInput" class="form-label">Enter dob</label>
             <input type="date" formControlName="dob" class="form-control" id="formGroupExampleInput2" >
-            <span class="text-danger" *ngIf="formValue.controls['dob'].dirty && formValue.hasError('required','dob')">*Dob is required*</span>
+            <span class="text-danger" *ngIf="formValue.controls['dob'].invalid && (formValue.controls['dob'].dirty || formValue.controls['dob'].touched)">*Dob is required*</span>
         </div>
         <div class="mb-3">
             <label for="formGroupExampleInput" class="form-label">Enter telephone no</label>
             <input type="text" formControlName="tpno" class="form-control" id="formGroupExampleInput2" >
-            <span class="text-danger" *ngIf="formValue.controls['tpno'].dirty && formValue.hasError('required','tpno')">*Telephone no is required*</span>
+            <span class="text-danger" *ngIf="formValue.controls['tpno'].invalid && (formValue.controls['tpno'].dirty || formValue.controls['tpno'].touched)">*Telephone no is required*</span>
         </div>
         <div class="mb-3">
             <label for="formGroupExampleInput" class="form-label">Enter email</label>
             <input type="text" formControlName="email" class="form-control" id="formGroupExampleInput2" >
-            <span class="text-danger" *ngIf="formValue.controls['email'].dirty && formValue.hasError('required','email')">*Email is required*</span>
+            <span class="text-danger" *ngIf="formValue.controls['email'].invalid && (formValue.controls['email'].dirty || formValue.controls['email'].touched)">*Valied email is required*</span>
         </div>
 
         <div>
@@ -35,13 +35,13 @@
             <div class="form-check">
                 <input class="form-check-input" type="radio" formControlName="status" value="Single" name="flexRadioDefault" id="flexRadioDefault1">
                 <label class="form-check-label" for="flexRadioDefault1">Single</label>
-                <span class="text-danger" *ngIf="formValue.controls['status'].dirty && formValue.hasError('required','status')">*Status is required*</span>
+                <span class="text-danger" *ngIf="formValue.controls['status'].invalid && (formValue.controls['status'].dirty || formValue.controls['status'].touched)">*Status is required*</span>
               </div>
 
               <div class="form-check">
                 <input class="form-check-input" type="radio" formControlName="status" value="Married" name="flexRadioDefault" id="flexRadioDefault2" checked>
                 <label class="form-check-label" for="flexRadioDefault2">Married</label>
-                <span class="text-danger" *ngIf="formValue.controls['status'].dirty && formValue.hasError('required','status')">*Status is required*</span>
+                <span class="text-danger" *ngIf="formValue.controls['status'].invalid && (formValue.controls['status'].dirty || formValue.controls['status'].touched)">*Status is required*</span>
               </div>
               <br>
         </div>
@@ -50,23 +50,18 @@
         <div>
             <label for="formGroupExampleInput" class="form-label">Select city</label>
             <select formControlName="city" class="form-select" aria-label="Default select example">
-                <option selected></option>
-                <option value="Matara">Matara</option>
-                <option value="Galle">Galle</option>
-                <option value="Colombo">Colombo</option>
-                <option value="Hambanthota">Hambanthota</option>
-                <option value="Kandy">Kandy</option>
-                <option value="Jaffna">Jaffna</option>
-                <option value="Anuradapura">Anuradapura</option>
+
+                <option value="{{city.city}}" *ngFor="let city of cityData">{{city.city}}</option>
+                
               </select>
-              <span class="text-danger" *ngIf="formValue.controls['city'].dirty && formValue.hasError('required','city')">*City is required*</span>
+              <span class="text-danger" *ngIf="formValue.controls['city'].invalid && (formValue.controls['city'].dirty || formValue.controls['city'].touched)">*City is required*</span>
         </div>
     
     
         <div class="mb-3">
             <label for="formGroupExampleInput" class="form-label">Enter remark</label>
             <input type="text" formControlName="remark" class="form-control" id="formGroupExampleInput2" >
-            <span class="text-danger" *ngIf="formValue.controls['remark'].dirty && formValue.hasError('required','remark')">*Remark is required*</span>
+            <span class="text-danger" *ngIf="formValue.controls['remark'].invalid && (formValue.controls['remark'].dirty || formValue.controls['remark'].touched)">*Remark is required*</span>
         </div>
 
         <div class="d-grid gap-2 d-md-flex justify-content-md-end">

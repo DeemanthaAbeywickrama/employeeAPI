@@ -97,14 +97,9 @@
       <div>
         <label for="formGroupExampleInput" class="form-label">Select city</label>
         <select formControlName="city" class="form-select" aria-label="Default select example">
-            <option selected></option>
-            <option value="Matara">Matara</option>
-            <option value="Galle">Galle</option>
-            <option value="Colombo">Colombo</option>
-            <option value="Hambanthota">Hambanthota</option>
-            <option value="Kandy">Kandy</option>
-            <option value="Jaffna">Jaffna</option>
-            <option value="Anuradapura">Anuradapura</option>
+          <option value="{{city.city}}" *ngFor="let city of cityData">{{city.city}}
+          
+            
           </select>
           <span class="text-danger" *ngIf="formValue.controls['city'].dirty && formValue.hasError('required','city')">*City is required</span>
     </div>

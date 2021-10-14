@@ -15,6 +15,7 @@ export class EmployeeComponent implements OnInit {
   employeeData !: any;
   showAdd !: boolean;
   showUpdate !: boolean;
+  cityData !: any;
 
 
   constructor(private api: ApiService,
@@ -26,14 +27,24 @@ export class EmployeeComponent implements OnInit {
       lastName: ['',Validators.required],
       dob: ['',Validators.required],
       tpno: ['',Validators.required],
-      email: ['',Validators.required],
+      email: ['',[Validators.required, Validators.email]],
       status: ['',Validators.required],
       city: ['',Validators.required],
       remark: ['',Validators.required]
       
     })
     this.getEmployeeDetails();
+    this.getAllCity();
 
+  }
+
+  getAllCity() {       
+    this.api.GetAllCity()
+    .subscribe(res=>{
+      this.cityData = res.employeeCity;
+      
+    })
+    
   }
 
   addemployee() {

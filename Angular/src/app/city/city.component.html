@@ -7,7 +7,7 @@
     <div class="mb-3">
       <label for="formGroupExampleInput" class="form-label">Enter City:</label>
       <input type="text" formControlName="city" class="form-control" id="formGroupExampleInput">
-      <span class="text-danger" *ngIf="formValue.controls['city'].dirty && formValue.hasError('required','city')">*City is required*</span>
+      <span class="text-danger" *ngIf="formValue.controls['city'].invalid && (formValue.controls['city'].dirty || formValue.controls['city'].touched)">*City is required*</span>
     </div>
 
     <button type="button" (click)="addCity()" class="btn btn-success">Add City</button>

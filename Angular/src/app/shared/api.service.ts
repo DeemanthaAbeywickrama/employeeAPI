@@ -43,6 +43,13 @@ export class ApiService {
     }))
   }
 
+  GetAllCity(){
+    return this._http.get<any>(`https://localhost:44389/api/Employee/get_all_city`)
+    .pipe(map((res:any)=>{
+      return res;
+    }))
+  }
+
   PostCity(data : any){
     return this._http.post<any>(`https://localhost:44389/api/City/add_city`,data)
     .pipe(map((res:any)=>{

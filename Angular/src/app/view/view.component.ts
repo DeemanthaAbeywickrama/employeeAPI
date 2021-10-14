@@ -16,6 +16,7 @@ export class ViewComponent implements OnInit {
   formValue !: FormGroup;
   employeeData !: any;
   employeeObj : EmployeeModel = new EmployeeModel();
+  cityData !: any;
   
   showAdd !: boolean;
   showUpdate !: boolean;
@@ -30,13 +31,14 @@ export class ViewComponent implements OnInit {
         lastName: ['',Validators.required],
         dob: ['',Validators.required],
         tpNo: ['',Validators.required],
-        email: ['',Validators.required],
+        email: ['',[Validators.required, Validators.email]],
         status: ['',Validators.required],
         city: ['',Validators.required],
         remark: ['',Validators.required]
         
       })
       this.getEmployeeDetails();
+      this.getAllCity();
     }
 
   
@@ -47,6 +49,15 @@ export class ViewComponent implements OnInit {
       this.employeeData = res.employeeDetails;
       
     })
+  }
+
+  getAllCity() {       
+    this.api.GetAllCity()
+    .subscribe(res=>{
+      this.cityData = res.employeeCity;
+      
+    })
+    
   }
 
   deleteEmployeeDetail(row : any){

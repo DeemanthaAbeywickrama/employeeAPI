@@ -128,5 +128,16 @@ namespace EmployeAPI.Controllers
             }
         }
 
+        [HttpGet("get_all_city")]
+        public IActionResult GetAllCity()
+        {
+            var city = _context.cityModels.AsQueryable();
+            return Ok(new
+            {
+                StatusCode = 200,
+                EmployeeCity = city
+            });
+        }
+
     }
 }
